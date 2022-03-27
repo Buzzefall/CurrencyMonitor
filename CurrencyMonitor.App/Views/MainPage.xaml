@@ -1,0 +1,50 @@
+﻿<Page
+    x:Class="CurrencyMonitor.App.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+
+    xmlns:local="using:CurrencyMonitor.App"
+    xmlns:ViewModels="using:CurrencyMonitor.App.ViewModels"
+    xmlns:UserControls="using:CurrencyMonitor.App.UserControls"
+
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid x:Name="MainPageGrid" BorderBrush="#FF00D6FF" RequestedTheme="Light">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width ="Auto"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBox x:Name="FirstCurrencyValue" Grid.Row ="0" Grid.Column="0" TextChanged="FirstCurrencyValue_OnTextChangedAsync">
+            <TextBox.HorizontalAlignment>Center</TextBox.HorizontalAlignment>
+            <TextBox.VerticalAlignment>Center</TextBox.VerticalAlignment>
+            <TextBox.TextWrapping>NoWrap</TextBox.TextWrapping>
+            <TextBox.TextAlignment>Right</TextBox.TextAlignment>
+        </TextBox>
+
+        <ListBox x:Name="FirstCurrency" Grid.Row ="0" Grid.Column="1" SelectedItem="USD">
+        </ListBox>
+
+        <TextBox x:Name="SecondCurrencyValue" Grid.Row ="0" Grid.Column="3" TextChanged="SecondCurrencyValue_OnTextChangedAsync">
+            <TextBox.HorizontalAlignment>Center</TextBox.HorizontalAlignment>
+            <TextBox.VerticalAlignment>Center</TextBox.VerticalAlignment>
+            <TextBox.TextWrapping>NoWrap</TextBox.TextWrapping>
+            <TextBox.TextAlignment>Right</TextBox.TextAlignment>
+        </TextBox>
+
+        <ListBox x:Name="SecondCurrency" Grid.Row ="0" Grid.Column="4">
+        </ListBox>
+    </Grid>
+</Page>
