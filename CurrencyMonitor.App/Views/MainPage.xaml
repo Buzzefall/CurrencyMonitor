@@ -4,47 +4,66 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
 
     xmlns:local="using:CurrencyMonitor.App"
-    xmlns:ViewModels="using:CurrencyMonitor.App.ViewModels"
-    xmlns:UserControls="using:CurrencyMonitor.App.UserControls"
+    xmlns:viewModels="using:CurrencyMonitor.App.ViewModels"
+    xmlns:converters="using:CurrencyMonitor.App.Converters"
+    xmlns:userControls="using:CurrencyMonitor.App.UserControls"
+
+    d:DataContext="{d:DesignInstance viewModels:ICurrencyInputViewModel}"
+    mc:Ignorable="d"
 
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <converters:StringToDecimalConverter x:Key="StringToDecimalConverter"/>
+    </Page.Resources>
+
+
 
     <Grid x:Name="MainPageGrid" BorderBrush="#FF00D6FF" RequestedTheme="Light">
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
+            <RowDefinition Height="0.25*"/>
+            <RowDefinition/>
 
+            <!--<RowDefinition Height="Auto"/>-->
+        </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width ="Auto"/>
+            <ColumnDefinition Width="0.25*"/>
+            <ColumnDefinition Width ="0.25*"/>
             <ColumnDefinition/>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="0.25*"/>
         </Grid.ColumnDefinitions>
 
-        <TextBox x:Name="FirstCurrencyValue" Grid.Row ="0" Grid.Column="0" TextChanged="FirstCurrencyValue_OnTextChangedAsync">
+        <TextBox x:Name="FirstCurrencyInput" Grid.Row ="1" Grid.Column="0" Text="{Binding FromCurrencyValue, Mode=TwoWay, Converter={StaticResource StringToDecimalConverter}}">
             <TextBox.HorizontalAlignment>Center</TextBox.HorizontalAlignment>
             <TextBox.VerticalAlignment>Center</TextBox.VerticalAlignment>
             <TextBox.TextWrapping>NoWrap</TextBox.TextWrapping>
             <TextBox.TextAlignment>Right</TextBox.TextAlignment>
         </TextBox>
 
-        <ListBox x:Name="FirstCurrency" Grid.Row ="0" Grid.Column="1" SelectedItem="USD">
-        </ListBox>
+        <ScrollViewer Grid.Row ="1" Grid.Column="1">
+            <ListBox x:Name="FirstCurrencyListBox" ItemsSource="{Binding CurrencyList, Mode=OneWay}" DisplayMemberPath="CharCode">
+                <ListBox.HorizontalAlignment>Center</ListBox.HorizontalAlignment>
+                <ListBox.VerticalAlignment>Center</ListBox.VerticalAlignment>
+            </ListBox>
+        </ScrollViewer>
 
-        <TextBox x:Name="SecondCurrencyValue" Grid.Row ="0" Grid.Column="3" TextChanged="SecondCurrencyValue_OnTextChangedAsync">
+        <TextBox x:Name="SecondCurrencyInput" Grid.Row ="1" Grid.Column="3" Text="{Binding ToCurrencyValue, Mode=TwoWay, Converter={StaticResource StringToDecimalConverter}}">
             <TextBox.HorizontalAlignment>Center</TextBox.HorizontalAlignment>
             <TextBox.VerticalAlignment>Center</TextBox.VerticalAlignment>
             <TextBox.TextWrapping>NoWrap</TextBox.TextWrapping>
             <TextBox.TextAlignment>Right</TextBox.TextAlignment>
         </TextBox>
 
-        <ListBox x:Name="SecondCurrency" Grid.Row ="0" Grid.Column="4">
-        </ListBox>
+        <ScrollViewer Grid.Row ="1" Grid.Column="4">
+            <ListBox x:Name="SecondCurrencyListBox" ItemsSource="{Binding CurrencyList, Mode=OneWay}" DisplayMemberPath="CharCode">
+                <ListBox.HorizontalAlignment>Center</ListBox.HorizontalAlignment>
+                <ListBox.VerticalAlignment>Center</ListBox.VerticalAlignment>
+            </ListBox>
+        </ScrollViewer>
     </Grid>
 </Page>

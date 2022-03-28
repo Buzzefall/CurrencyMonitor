@@ -1,7 +1,11 @@
-﻿using System.Globalization;
+﻿using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
+using CurrencyMonitor.App.ViewModels;
+using CurrencyMonitor.Logic.Interfaces;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -15,36 +19,52 @@ namespace CurrencyMonitor.App
         public MainPage()
         {
             this.InitializeComponent();
+
         }
 
-        private async void FirstCurrencyValue_OnTextChangedAsync(object sender, TextChangedEventArgs e) {
-            var textBox = sender as TextBox;
+        protected override void OnNavigatedTo(NavigationEventArgs e) {
+            //base.OnNavigatedTo(e);
+            this.DataContext = new CurrencyInputViewModel(e.Parameter as List<ICurrency>);
+        }
 
-            decimal.TryParse(textBox.Text, out var value);         
+
+
+
+
+
+        //private async void FirstCurrencyValue_OnTextChangedAsync(object sender, TextChangedEventArgs e) {
+        //    var app = Application.Current as CurrencyMonitorApp;
+        //    var list = await app.CurrencyExchanger.GetCurrencyListAsync();
+
+        //    var context = FirstCurrencyInput.DataContext as CurrencyInputViewModel;
+
+        //    var textBox = sender as TextBox;
+        //    decimal.TryParse(textBox.Text, out var value);         
             
-            var app = Application.Current as CurrencyMonitorApp;
-            var list = await app.CurrencyExchanger.GetCurrencyListAsync();
 
-            var rub = list.First(currency => currency.CharCode == "RUB");
-            var usd = list.First(currency => currency.CharCode == "USD");
+        //    var rub = list.First(currency => currency.CharCode == "RUB");
+        //    var usd = list.First(currency => currency.CharCode == "USD");
 
-            var exchanged = await app.CurrencyExchanger.Exchange(rub, usd, value);
-            SecondCurrencyValue.Text = exchanged.ToString("F");
-        }
-
-        private async void SecondCurrencyValue_OnTextChangedAsync(object sender, TextChangedEventArgs e) {
-            var textBox = sender as TextBox;
-
-            decimal.TryParse(textBox.Text, out var value);         
+        //    var exchanged = await app.CurrencyExchanger.Exchange(rub, usd, value);
             
-            var app = Application.Current as CurrencyMonitorApp;
-            var list = await app.CurrencyExchanger.GetCurrencyListAsync();
+        //    (SecondCurrencyInput.DataContext as CurrencyInputViewModel).FromCurrencyValue = exchanged;
+        //}
 
-            var rub = list.First(currency => currency.CharCode == "RUB");
-            var usd = list.First(currency => currency.CharCode == "USD");
+        //private async void SecondCurrencyValue_OnTextChangedAsync(object sender, TextChangedEventArgs e) {
+        //    var context = SecondCurrencyInput.DataContext as CurrencyInputViewModel;
 
-            var exchanged = await app.CurrencyExchanger.Exchange(usd, rub, value);
-            FirstCurrencyValue.Text = exchanged.ToString("F");
-        }
+        //    var textBox = sender as TextBox;
+        //    decimal.TryParse(textBox.Text, out var value);         
+            
+        //    var app = Application.Current as CurrencyMonitorApp;
+        //    var list = await app.CurrencyExchanger.GetCurrencyListAsync();
+
+        //    var rub = list.First(currency => currency.CharCode == "RUB");
+        //    var usd = list.First(currency => currency.CharCode == "USD");
+
+        //    var exchanged = await app.CurrencyExchanger.Exchange(usd, rub, value);
+            
+        //    (FirstCurrencyInput.DataContext as CurrencyInputViewModel).FromCurrencyValue = exchanged;
+        //}
     }
 }

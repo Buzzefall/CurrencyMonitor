@@ -1,4 +1,7 @@
-﻿using Windows.UI.Xaml.Controls;
+﻿using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media.Animation;
+using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -12,6 +15,17 @@ namespace CurrencyMonitor.App
         public LoadingPage()
         {
             this.InitializeComponent();
+            
+            LoadingScreenProgressRing.IsActive = true;
+        }
+
+        protected override async void OnNavigatedTo(NavigationEventArgs e) {
+            base.OnNavigatedTo(e);
+
+            var app = Application.Current as CurrencyMonitorApp;
+            var list = await app.CurrencyExchanger.GetCurrencyListAsync();
+
+            Frame.Navigate(typeof(MainPage), list, new EntranceNavigationTransitionInfo());
         }
     }
 }
