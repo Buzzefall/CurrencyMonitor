@@ -10,6 +10,5 @@
 
     <Grid>
         <ProgressRing x:Name="LoadingScreenProgressRing" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
     </Grid>
 </Page>

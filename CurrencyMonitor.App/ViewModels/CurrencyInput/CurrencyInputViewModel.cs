@@ -1,39 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Diagnostics.Contracts;
-using System.Linq;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using CurrencyMonitor.App.Annotations;
-using CurrencyMonitor.Logic.Interfaces;
 
 namespace CurrencyMonitor.App.ViewModels
 {
     public class CurrencyInputViewModel : ICurrencyInputViewModel, INotifyPropertyChanged
     {
-        [NotNull] 
-        private ObservableCollection<ICurrency> _currencyList;
-        private decimal _fromCurrencyValue;
-        private decimal _toCurrencyValue;
+        private double _fromCurrencyValue;
+        private double _toCurrencyValue;
 
-        public CurrencyInputViewModel(IEnumerable<ICurrency> currencyList) {
-            _currencyList = new ObservableCollection<ICurrency>(currencyList);
-        }
-
-        public ObservableCollection<ICurrency> CurrencyList {
-            get => _currencyList;
-            set {
-                if (_currencyList == value) return;
-
-                _currencyList = value;
-                OnPropertyChanged(nameof(CurrencyList));
-            }
-        }
-
-        public decimal FromCurrencyValue {
+        public double FromCurrencyValue {
             get => _fromCurrencyValue;
             set {
                 if (_fromCurrencyValue == value) return;
@@ -43,7 +19,7 @@ namespace CurrencyMonitor.App.ViewModels
             }
         }
 
-        public decimal ToCurrencyValue {
+        public double ToCurrencyValue {
             get => _toCurrencyValue;
             set {
                 if (_toCurrencyValue == value) return;

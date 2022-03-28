@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using CurrencyMonitor.Domain;
 
-namespace CurrencyMonitor.Logic.Interfaces
+namespace CurrencyMonitor.Logic.Services
 {
     public interface ICurrencyExchanger
     {
         Task<List<ICurrency>> GetCurrencyListAsync();
-        Task<decimal> Exchange(ICurrency fromCurrency, ICurrency toCurrency, decimal value);
+        Task<double> Exchange(ICurrency fromCurrency, ICurrency toCurrency, double value);
     }
 }

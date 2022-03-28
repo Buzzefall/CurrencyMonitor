@@ -1,16 +1,14 @@
-﻿using CurrencyMonitor.Logic.Interfaces;
-
-namespace CurrencyMonitor.Logic
+﻿namespace CurrencyMonitor.Domain
 {
-    internal class Currency : ICurrency
+    public class Currency : ICurrency
     {
         public string ID { get; set; }
         public string NumCode { get; set; }
         public string CharCode { get; set; }
         public uint Nominal { get; set; }
         public string Name { get; set; }
-        public decimal Value { get; set; }
-        public decimal Previous { get; set; }
+        public double Value { get; set; }
+        public double Previous { get; set; }
     }
 
     

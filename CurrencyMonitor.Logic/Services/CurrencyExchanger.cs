@@ -5,9 +5,9 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Windows.Data.Json;
-using CurrencyMonitor.Logic.Interfaces;
+using CurrencyMonitor.Domain;
 
-namespace CurrencyMonitor.Logic
+namespace CurrencyMonitor.Logic.Services
 {
     public class CurrencyExchanger : ICurrencyExchanger {
         private readonly string dataSourceUrl;
@@ -28,8 +28,8 @@ namespace CurrencyMonitor.Logic
                     CharCode = obj["CharCode"].GetString(),
                     Nominal = (uint) obj["Nominal"].GetNumber(),
                     Name = obj["Name"].GetString(),
-                    Value = (decimal) obj["Value"].GetNumber(),
-                    Previous = (decimal) obj["Previous"].GetNumber(),
+                    Value = obj["Value"].GetNumber(),
+                    Previous = obj["Previous"].GetNumber(),
                 };
                 return currency;
             }).ToList<ICurrency>();
@@ -63,7 +63,7 @@ namespace CurrencyMonitor.Logic
             return _currencies ?? await FetchDataAsync();
         }
 
-        public async Task<decimal> Exchange(ICurrency fromCurrency, ICurrency toCurrency, decimal value) {
+        public async Task<double> Exchange(ICurrency fromCurrency, ICurrency toCurrency, double value) {
             if (_currencies is null) {
                 await FetchDataAsync();
             }

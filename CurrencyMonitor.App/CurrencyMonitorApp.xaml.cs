@@ -4,8 +4,8 @@ using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
-using CurrencyMonitor.Logic;
-using CurrencyMonitor.Logic.Interfaces;
+
+using CurrencyMonitor.Logic.Services;
 
 namespace CurrencyMonitor.App
 {

@@ -120,8 +120,6 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ICurrency.cs" />
-    <Compile Include="ICurrencyExchanger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\CurrencyMonitor.Logic.Interfaces.rd.xml" />
   </ItemGroup>

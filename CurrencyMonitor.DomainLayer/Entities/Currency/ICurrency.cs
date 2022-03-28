@@ -1,4 +1,4 @@
-﻿namespace CurrencyMonitor.Logic.Interfaces
+﻿namespace CurrencyMonitor.Domain
 {
     public interface ICurrency
     {
@@ -7,7 +7,7 @@
         string CharCode { get; }
         uint Nominal { get; }
         string Name { get; }
-        decimal Value { get;  }
-        decimal Previous { get; }
+        double Value { get;  }
+        double Previous { get; }
     }
 }

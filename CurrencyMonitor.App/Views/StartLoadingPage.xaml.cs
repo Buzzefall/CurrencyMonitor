@@ -21,6 +21,8 @@ namespace CurrencyMonitor.App
             var app = Application.Current as CurrencyMonitorApp;
             var list = await app.CurrencyExchanger.GetCurrencyListAsync();
 
+            //Frame.Navigate(typeof(MainPage), list, new EntranceNavigationTransitionInfo());
+
             Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => {
                 Frame.Navigate(typeof(MainPage), list, new EntranceNavigationTransitionInfo());
             });

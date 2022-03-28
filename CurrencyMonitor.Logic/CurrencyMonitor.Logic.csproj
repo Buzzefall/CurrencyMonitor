@@ -120,8 +120,8 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Currency.cs" />
-    <Compile Include="CurrencyExchanger.cs" />
+    <Compile Include="Services\CurrencyExchanger.cs" />
+    <Compile Include="Services\ICurrencyExchanger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\CurrencyMonitor.Logic.rd.xml" />
   </ItemGroup>
@@ -134,11 +134,12 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CurrencyMonitor.Logic.Interfaces\CurrencyMonitor.Logic.Interfaces.csproj">
-      <Project>{0edefa83-0a69-441d-a5a4-2f5ceb751f0a}</Project>
-      <Name>CurrencyMonitor.Logic.Interfaces</Name>
+    <ProjectReference Include="..\CurrencyMonitor.DomainLayer\CurrencyMonitor.Domain.csproj">
+      <Project>{373F76F8-7B06-4F72-BD59-F03FADD3699F}</Project>
+      <Name>CurrencyMonitor.Domain</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
