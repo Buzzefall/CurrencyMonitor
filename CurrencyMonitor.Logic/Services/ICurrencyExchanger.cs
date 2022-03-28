@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using CurrencyMonitor.Domain;
+using CurrencyMonitor.Domain.Entities;
 
 namespace CurrencyMonitor.Logic.Services
 {

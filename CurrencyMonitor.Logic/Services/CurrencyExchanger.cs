@@ -5,7 +5,8 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Windows.Data.Json;
-using CurrencyMonitor.Domain;
+
+using CurrencyMonitor.Domain.Entities;
 
 namespace CurrencyMonitor.Logic.Services
 {
