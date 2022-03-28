@@ -16,29 +16,28 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Page.Resources>
-        <converters:StringToDecimalConverter x:Key="StringToDecimalConverter"/>
+        <converters:DecimalToStringConverter x:Key="StringToDecimalConverter"/>
     </Page.Resources>
 
 
-
-    <Grid x:Name="MainPageGrid" BorderBrush="#FF00D6FF" RequestedTheme="Light">
+    <Grid x:Name="MainPageGrid" BorderBrush="#FF00D6FF" RequestedTheme="Default" Width="600" Height="Auto">
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="0.25*"/>
-            <RowDefinition/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="3*"/>
 
             <!--<RowDefinition Height="Auto"/>-->
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition Width="0.25*"/>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width ="0.25*"/>
             <ColumnDefinition/>
-            <ColumnDefinition Width="0.25*"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
-        <TextBox x:Name="FirstCurrencyInput" Grid.Row ="1" Grid.Column="0" Text="{Binding FromCurrencyValue, Mode=TwoWay, Converter={StaticResource StringToDecimalConverter}}">
+        <TextBox x:Name="FirstCurrencyInput" Grid.Row ="1" Grid.Column="0" Text="{Binding FromCurrencyValue, Mode=TwoWay, Converter={StaticResource StringToDecimalConverter}, UpdateSourceTrigger=PropertyChanged}">
             <TextBox.HorizontalAlignment>Center</TextBox.HorizontalAlignment>
             <TextBox.VerticalAlignment>Center</TextBox.VerticalAlignment>
             <TextBox.TextWrapping>NoWrap</TextBox.TextWrapping>
@@ -47,23 +46,35 @@
 
         <ScrollViewer Grid.Row ="1" Grid.Column="1">
             <ListBox x:Name="FirstCurrencyListBox" ItemsSource="{Binding CurrencyList, Mode=OneWay}" DisplayMemberPath="CharCode">
+                <ListBox.SelectionMode>Single</ListBox.SelectionMode>
+                <ListBox.SingleSelectionFollowsFocus>True</ListBox.SingleSelectionFollowsFocus>
+
                 <ListBox.HorizontalAlignment>Center</ListBox.HorizontalAlignment>
                 <ListBox.VerticalAlignment>Center</ListBox.VerticalAlignment>
             </ListBox>
         </ScrollViewer>
 
-        <TextBox x:Name="SecondCurrencyInput" Grid.Row ="1" Grid.Column="3" Text="{Binding ToCurrencyValue, Mode=TwoWay, Converter={StaticResource StringToDecimalConverter}}">
+        <TextBox x:Name="SecondCurrencyInput" Grid.Row ="1" Grid.Column="3" Text="{Binding ToCurrencyValue, Mode=TwoWay, Converter={StaticResource StringToDecimalConverter}, UpdateSourceTrigger=PropertyChanged}">
             <TextBox.HorizontalAlignment>Center</TextBox.HorizontalAlignment>
             <TextBox.VerticalAlignment>Center</TextBox.VerticalAlignment>
             <TextBox.TextWrapping>NoWrap</TextBox.TextWrapping>
             <TextBox.TextAlignment>Right</TextBox.TextAlignment>
         </TextBox>
 
-        <ScrollViewer Grid.Row ="1" Grid.Column="4">
-            <ListBox x:Name="SecondCurrencyListBox" ItemsSource="{Binding CurrencyList, Mode=OneWay}" DisplayMemberPath="CharCode">
-                <ListBox.HorizontalAlignment>Center</ListBox.HorizontalAlignment>
-                <ListBox.VerticalAlignment>Center</ListBox.VerticalAlignment>
-            </ListBox>
-        </ScrollViewer>
+        <!--<ScrollViewer Grid.Row ="1" Grid.Column="4">-->
+            <ComboBox x:Name="SecondCurrencyListBox" Grid.Row ="1" Grid.Column="4" ItemsSource="{x:Bind _viewModel.CurrencyList, Mode=OneWay}" DisplayMemberPath="CharCode">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate x:Key="CurrencySelectorItemTemplate" x:DataType="viewModels:ICurrencySelectorItemViewModel">
+                        <TextBlock 
+                            FontFamily="{StaticResource ContentControlThemeFontFamily}"
+                            Text="{x:Bind CharCode}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+                <!--<ComboBox.SelectionMode>Single</ComboBox.SelectionMode>-->
+                <ComboBox.HorizontalAlignment>Center</ComboBox.HorizontalAlignment>
+                <ComboBox.VerticalAlignment>Center</ComboBox.VerticalAlignment>
+            </ComboBox>
+
+        <!--</ScrollViewer>-->
     </Grid>
 </Page>

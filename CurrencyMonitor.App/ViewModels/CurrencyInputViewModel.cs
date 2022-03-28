@@ -26,6 +26,8 @@ namespace CurrencyMonitor.App.ViewModels
         public ObservableCollection<ICurrency> CurrencyList {
             get => _currencyList;
             set {
+                if (_currencyList == value) return;
+
                 _currencyList = value;
                 OnPropertyChanged(nameof(CurrencyList));
             }
@@ -34,6 +36,8 @@ namespace CurrencyMonitor.App.ViewModels
         public decimal FromCurrencyValue {
             get => _fromCurrencyValue;
             set {
+                if (_fromCurrencyValue == value) return;
+
                 _fromCurrencyValue = value;
                 OnPropertyChanged(nameof(FromCurrencyValue));
             }
@@ -42,6 +46,8 @@ namespace CurrencyMonitor.App.ViewModels
         public decimal ToCurrencyValue {
             get => _toCurrencyValue;
             set {
+                if (_toCurrencyValue == value) return;
+
                 _toCurrencyValue = value;
                 OnPropertyChanged(nameof(ToCurrencyValue));
             }

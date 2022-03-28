@@ -116,16 +116,18 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Converters\StringToDecimalConverter.cs" />
+    <Compile Include="Converters\DecimalToStringConverter.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="UserControls\UserControl1.cs" />
     <Compile Include="ViewModels\CurrencyInputViewModel.cs" />
+    <Compile Include="ViewModels\CurrencySelectorItemViewModel.cs" />
     <Compile Include="ViewModels\ICurrencyInputViewModel.cs" />
+    <Compile Include="ViewModels\ICurrencySelectorItemViewModel.cs" />
     <Compile Include="Views\SelectCurrencyPage.xaml.cs">
       <DependentUpon>SelectCurrencyPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\LoadingPage.xaml.cs">
-      <DependentUpon>LoadingPage.xaml</DependentUpon>
+    <Compile Include="Views\StartLoadingPage.xaml.cs">
+      <DependentUpon>StartLoadingPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="CurrencyMonitorApp.xaml.cs">
       <DependentUpon>CurrencyMonitorApp.xaml</DependentUpon>
@@ -162,7 +164,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\LoadingPage.xaml">
+    <Page Include="Views\StartLoadingPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
