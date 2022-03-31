@@ -8,13 +8,13 @@ using Windows.Data.Json;
 using CurrencyMonitor.Domain.Entities;
 
 namespace CurrencyMonitor.Logic.Services.Providers  {
-    public class CurrencyListProvider : ICurrencyListProvider {
+    public class CurrencyDataProvider : ICurrencyListProvider {
         private string DataSourceUrl { get; } = "https://www.cbr-xml-daily.ru/daily_json.js";
 
 
-        public CurrencyListProvider() { }
+        public CurrencyDataProvider() { }
 
-        public CurrencyListProvider(string dataSourceUrl) {
+        public CurrencyDataProvider(string dataSourceUrl) {
             DataSourceUrl = dataSourceUrl;
         }
 
