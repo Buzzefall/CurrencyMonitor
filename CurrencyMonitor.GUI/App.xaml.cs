@@ -21,7 +21,7 @@ namespace CurrencyMonitor.GUI
             this.InitializeComponent();
             this.Suspending += OnSuspending;
 
-            var dataProvider = new CurrencyListProvider();
+            var dataProvider = new CurrencyDataProvider();
             CurrencyExchangerService = new CurrencyExchangerService(dataProvider);
         }
 
