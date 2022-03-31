@@ -17,6 +17,8 @@ namespace CurrencyMonitor.GUI.ViewModels
         private ICurrency _toCurrencySelected;
         private double _toCurrencySelectedValue;
 
+        public int LastCurrencySelectedIndex { get; set; }
+
         public CurrencyInputViewModel(IEnumerable<ICurrency> currencyList) {
             _currencyList = new ObservableCollection<ICurrency>(currencyList);
         }

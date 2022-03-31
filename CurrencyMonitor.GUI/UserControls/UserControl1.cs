@@ -1,6 +1,7 @@
-﻿namespace CurrencyMonitor.App.UserControls
+﻿namespace CurrencyMonitor.GUI.UserControls
 {
     internal class UserControl1
     {
+
     }
 }

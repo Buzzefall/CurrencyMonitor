@@ -16,7 +16,7 @@ namespace CurrencyMonitor.GUI.Views
 {
     public sealed partial class DataLoadingPage : Page
     {
-        private Task<List<ICurrency>> _dataLoadingTask;
+        private Task<List<ICurrency>> DataLoadingTask { get; set; }
 
         public DataLoadingPage()
         {
@@ -28,11 +28,11 @@ namespace CurrencyMonitor.GUI.Views
         }
 
         private async void OnLoaded(object sender, RoutedEventArgs e) {
-            var list = await _dataLoadingTask;
+            var list = await DataLoadingTask;
             var viewModel = new CurrencyInputViewModel(list);
 
-            viewModel.FromCurrencySelected = viewModel.CurrencyList.First(c => c.CharCode.Equals("RUB"));
-            viewModel.ToCurrencySelected = viewModel.CurrencyList.First(c => c.CharCode.Equals("USD"));
+            viewModel.FromCurrencySelected = viewModel.CurrencyList.First(c => c.CharCode.Equals("RUB", StringComparison.OrdinalIgnoreCase));
+            viewModel.ToCurrencySelected = viewModel.CurrencyList.First(c => c.CharCode.Equals("USD", StringComparison.OrdinalIgnoreCase));
 
             Frame.Navigate(typeof(CurrencyExchangePage), viewModel, new EntranceNavigationTransitionInfo());
         }
@@ -42,7 +42,7 @@ namespace CurrencyMonitor.GUI.Views
 
             var param = e.Parameter;
             var app = Application.Current as CurrencyMonitorApplication;
-            _dataLoadingTask = app.CurrencyExchanger.GetCurrencyListAsync();
+            DataLoadingTask = app.CurrencyExchangerServiceService.GetCurrencyListAsync();
         }
     }
 }

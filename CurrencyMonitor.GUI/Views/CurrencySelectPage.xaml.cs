@@ -4,36 +4,55 @@ using System.ComponentModel;
 using System.Linq;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 using CurrencyMonitor.Domain.Entities;
 using CurrencyMonitor.GUI.ViewModels;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace CurrencyMonitor.GUI.Views
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
+    
     public sealed partial class CurrencySelectPage : Page
     {
-        private ObservableCollection<ICurrency> _currencyList;
+        private CurrencyInputViewModel CurrencyInputViewModel { get; set; }
 
         public CurrencySelectPage()
         {
             this.InitializeComponent();
+            this.Loading += OnLoadingStart;
+        }
 
+        private void OnLoadingStart(FrameworkElement frameworkElement, object args) {
+            CurrencySelectList.SelectedItem =
+                CurrencyInputViewModel.LastCurrencySelectedIndex == 1
+                    ? CurrencyInputViewModel.FromCurrencySelected
+                    : CurrencyInputViewModel.ToCurrencySelected;
         }
 
 
-        private void InitViewModels(NavigationEventArgs e) {
-            //_currencySelectorViewModel = new CurrencySelectorViewModel(e.Parameter as List<ICurrency>);
+        protected override void OnNavigatedTo(NavigationEventArgs e) {
+            base.OnNavigatedTo(e);
 
-            //_currencySelectorViewModel.FromCurrency = _currencySelectorViewModel.CurrencyList.First(c => c.CharCode.Equals("RUB"));
-            //_currencySelectorViewModel.ToCurrency = _currencySelectorViewModel.CurrencyList.First(c => c.CharCode.Equals("USD"));
-
-            //Frame.Navigate;
+            CurrencyInputViewModel = e.Parameter as CurrencyInputViewModel;
         }
 
+
+        private void CurrencySelectList_OnItemClick(object sender, ItemClickEventArgs e) {
+            var selected = e.ClickedItem as ICurrency;
+
+            switch (CurrencyInputViewModel.LastCurrencySelectedIndex) {
+                case 1 when CurrencyInputViewModel.FromCurrencySelected != selected:
+                    CurrencyInputViewModel.FromCurrencySelected = selected;
+                    break;
+                case 2 when CurrencyInputViewModel.ToCurrencySelected != selected:
+                    CurrencyInputViewModel.ToCurrencySelected = selected;
+                    break;
+                default:
+                    return;
+            }
+
+            Frame.Navigate(typeof(CurrencyExchangePage), CurrencyInputViewModel, new DrillInNavigationTransitionInfo());
+        }
     }
 }

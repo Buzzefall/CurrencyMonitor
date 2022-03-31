@@ -7,6 +7,6 @@ namespace CurrencyMonitor.Logic.Services
     public interface ICurrencyExchangerService
     {
         Task<List<ICurrency>> GetCurrencyListAsync();
-        Task<double> Exchange(ICurrency fromCurrency, ICurrency toCurrency, double value);
+        double Exchange(ICurrency fromCurrency, ICurrency toCurrency, double value);
     }
 }

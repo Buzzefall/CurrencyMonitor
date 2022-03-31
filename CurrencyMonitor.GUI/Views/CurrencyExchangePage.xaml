@@ -10,66 +10,103 @@
 
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <!--<Grid x:Name="MainPageGrid" BorderBrush="#FF00D6FF" RequestedTheme="Default" Width="600" Height="Auto">
-        
-    </Grid>-->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="0.35*"/>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
 
-    <VariableSizedWrapGrid 
-        Orientation="Horizontal" 
-        HorizontalAlignment="Center" 
-        VerticalAlignment="Center"
-        MaximumRowsOrColumns="3"
-        >
 
-        <StackPanel Orientation="Horizontal" Spacing="5">
-            <controls:NumberBox 
-                x:Name="FirstCurrencyInput" 
-                Value="{x:Bind CurrencyInputViewModel.FromCurrencySelectedValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                ValidationMode="InvalidInputOverwritten"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Center"
-                IsWrapEnabled="False"
-                Width="150"
-            />
+        <StackPanel Orientation="Vertical" 
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Spacing="5" 
+                    Grid.Row="1" Grid.Column="1">
 
-            <ComboBox 
-                x:Name="FirstCurrencyComboBox"
-                ItemsSource="{x:Bind _selectViewModel.CurrencyList, Mode=OneWay}" DisplayMemberPath="CharCode"
-                SelectedItem="{x:Bind _selectViewModel.FromCurrency, Mode=TwoWay}" SelectionChangedTrigger="Always"
+            <TextBox 
+                x:Name="FirstCurrencyInput"
+                Text="{x:Bind CurrencyInputViewModel.FromCurrencySelectedValue, Mode=TwoWay, FallbackValue=0, UpdateSourceTrigger=PropertyChanged}"
+                BeforeTextChanging="CurrencyInputs_BeforeTextChanging"
+                TextChanging="CurrencyInputs_TextChanging"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Width="75"/>
+                TextAlignment="Right"
+                Width="100"/>
+
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 -35">
+                <TextBlock Text="{x:Bind CurrencyInputViewModel.FromCurrencySelected.CharCode, FallbackValue='Выберите валюту', Mode=OneWay}"
+                           FontWeight="ExtraBold"
+                           FontSize="14"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
+
+                <HyperlinkButton x:Name="ChangeFirstCurrencyButton" 
+                                 Content="Изменить валюту" 
+                                 Click="ChangeFirstCurrencyButton_OnClick"/>
+            </StackPanel>
+
         </StackPanel>
 
-        
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button x:Name="SwitchCurrencyButton" Click="SwitchCurrencyButton_OnClick">
-                <Image
-                    x:Name="ImageExchange" 
-                    Source="../Assets/exchange.png"   
-                />
+
+        <StackPanel HorizontalAlignment="Center" 
+                    VerticalAlignment="Center" 
+                    Margin="0 0 0 -8"
+                    Spacing="10"
+                    Grid.Row="1" Grid.Column="2">
+
+            <Button x:Name="SwitchCurrencyButton"
+                    Width="48"
+                    Height="48"
+                    HorizontalAlignment="Center"
+                    Foreground="Transparent"
+                    Click="SwitchCurrencyButton_OnClick">
+                <Image x:Name="ImageExchange"
+                       Stretch="UniformToFill"
+                       HorizontalAlignment="Center"
+
+                       Source="../Assets/exchange.png"/>
             </Button>
-        </StackPanel>
-        
 
-        <StackPanel Orientation="Horizontal" Spacing="5">
-            <controls:NumberBox 
+            <TextBlock Text="Развернуть"/>
+        </StackPanel>
+
+
+        <StackPanel Orientation="Vertical" 
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Spacing="5" 
+                    Grid.Row="1" Grid.Column="3">
+
+            <TextBox 
                 x:Name="SecondCurrencyInput"
-                Value="{x:Bind CurrencyInputViewModel.ToCurrencySelectedValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                ValidationMode="InvalidInputOverwritten"
-                HorizontalAlignment="Left"
+                Text="{x:Bind CurrencyInputViewModel.ToCurrencySelectedValue, Mode=TwoWay, FallbackValue=0, UpdateSourceTrigger=PropertyChanged}"
+                BeforeTextChanging="CurrencyInputs_BeforeTextChanging"
+                TextChanging="CurrencyInputs_TextChanging"
+                HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                IsWrapEnabled="False"
-                Width="150"
-            />
+                TextAlignment="Right"
+                Width="100"/>
 
-            <ComboBox 
-                x:Name="SecondCurrencyComboBox" 
-                ItemsSource="{x:Bind _selectViewModel.CurrencyList, Mode=OneWay}" DisplayMemberPath="CharCode"
-                SelectedItem="{x:Bind _selectViewModel.ToCurrency, Mode=TwoWay}" SelectionChangedTrigger="Always"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center"
-                Width="75"/>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 -35">
+                <TextBlock Text="{x:Bind CurrencyInputViewModel.ToCurrencySelected.CharCode, FallbackValue='Выберите валюту', Mode=OneWay}"
+                           FontWeight="ExtraBold"
+                           FontSize="14"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
+
+                <HyperlinkButton x:Name="ChangeSecondCurrencyButton" 
+                                 Content="Изменить валюту" 
+                                 Click="ChangeSecondCurrencyButton_OnClick"/>
+            </StackPanel>
+
         </StackPanel>
-    </VariableSizedWrapGrid>
+    </Grid>
 </Page>
