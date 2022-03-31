@@ -10,7 +10,7 @@ using CurrencyMonitor.Domain.Entities;
 
 namespace CurrencyMonitor.Logic.Services
 {
-    public class CurrencyExchanger : ICurrencyExchanger {
+    public class CurrencyExchangerService : ICurrencyExchangerService {
         private readonly string dataSourceUrl;
         private List<ICurrency> _currencies;
 
@@ -56,7 +56,7 @@ namespace CurrencyMonitor.Logic.Services
             return _currencies;
         }
 
-        public CurrencyExchanger(string dataSourceUrl) {
+        public CurrencyExchangerService(string dataSourceUrl) {
             this.dataSourceUrl = dataSourceUrl;
         }
 

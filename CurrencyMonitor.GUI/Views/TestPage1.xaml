@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="CurrencyMonitor.GUI.Views.TestPage"
+    x:Class="CurrencyMonitor.GUI.Views.TestPage1"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -56,7 +56,7 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-        <Button Name="Button1" Content="Button 1" />
+        <Button Name="Button1" Content="TestPage1" />
         <Button Name="Button2" Content="Button 2" />
         <Button Name="Button3" Content="Button 3" />
         <Button Name="Button4" Content="Button 4" />

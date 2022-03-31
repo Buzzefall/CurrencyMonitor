@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="CurrencyMonitor.GUI.Views.MainPage"
+    x:Class="CurrencyMonitor.GUI.Views.CurrencyExchangePage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -24,7 +24,7 @@
         <StackPanel Orientation="Horizontal" Spacing="5">
             <controls:NumberBox 
                 x:Name="FirstCurrencyInput" 
-                Value="{x:Bind _currencyInputViewModel.FromCurrencyValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                Value="{x:Bind CurrencyInputViewModel.FromCurrencySelectedValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                 ValidationMode="InvalidInputOverwritten"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
@@ -34,8 +34,8 @@
 
             <ComboBox 
                 x:Name="FirstCurrencyComboBox"
-                ItemsSource="{x:Bind _currencySelectorViewModel.CurrencyList, Mode=OneWay}" DisplayMemberPath="CharCode"
-                SelectedItem="{x:Bind _currencySelectorViewModel.FromCurrency, Mode=TwoWay}" SelectionChangedTrigger="Always"
+                ItemsSource="{x:Bind _selectViewModel.CurrencyList, Mode=OneWay}" DisplayMemberPath="CharCode"
+                SelectedItem="{x:Bind _selectViewModel.FromCurrency, Mode=TwoWay}" SelectionChangedTrigger="Always"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Width="75"/>
@@ -55,7 +55,7 @@
         <StackPanel Orientation="Horizontal" Spacing="5">
             <controls:NumberBox 
                 x:Name="SecondCurrencyInput"
-                Value="{x:Bind _currencyInputViewModel.ToCurrencyValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                Value="{x:Bind CurrencyInputViewModel.ToCurrencySelectedValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                 ValidationMode="InvalidInputOverwritten"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
@@ -65,8 +65,8 @@
 
             <ComboBox 
                 x:Name="SecondCurrencyComboBox" 
-                ItemsSource="{x:Bind _currencySelectorViewModel.CurrencyList, Mode=OneWay}" DisplayMemberPath="CharCode"
-                SelectedItem="{x:Bind _currencySelectorViewModel.ToCurrency, Mode=TwoWay}" SelectionChangedTrigger="Always"
+                ItemsSource="{x:Bind _selectViewModel.CurrencyList, Mode=OneWay}" DisplayMemberPath="CharCode"
+                SelectedItem="{x:Bind _selectViewModel.ToCurrency, Mode=TwoWay}" SelectionChangedTrigger="Always"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
                 Width="75"/>

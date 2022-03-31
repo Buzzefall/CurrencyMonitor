@@ -126,17 +126,20 @@
     <Compile Include="ViewModels\CurrencyInput\ICurrencyInputViewModel.cs" />
     <Compile Include="ViewModels\CurrencySelector\CurrencySelectorViewModel.cs" />
     <Compile Include="ViewModels\CurrencySelector\ICurrencySelectorViewModel.cs" />
-    <Compile Include="Views\MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
+    <Compile Include="Views\CurrencyExchangePage.xaml.cs">
+      <DependentUpon>CurrencyExchangePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\StartLoadingPage.xaml.cs">
-      <DependentUpon>StartLoadingPage.xaml</DependentUpon>
+    <Compile Include="Views\DataLoadingPage.xaml.cs">
+      <DependentUpon>DataLoadingPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TestPage.xaml.cs">
-      <DependentUpon>TestPage.xaml</DependentUpon>
+    <Compile Include="Views\TestPage2.xaml.cs">
+      <DependentUpon>TestPage2.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SelectCurrencyPage.xaml.cs">
-      <DependentUpon>SelectCurrencyPage.xaml</DependentUpon>
+    <Compile Include="Views\TestPage1.xaml.cs">
+      <DependentUpon>TestPage1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CurrencySelectPage.xaml.cs">
+      <DependentUpon>CurrencySelectPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -160,19 +163,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Views\MainPage.xaml">
+    <Page Include="Views\CurrencyExchangePage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\StartLoadingPage.xaml">
+    <Page Include="Views\DataLoadingPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\TestPage.xaml">
+    <Page Include="Views\TestPage2.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\SelectCurrencyPage.xaml">
+    <Page Include="Views\TestPage1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CurrencySelectPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

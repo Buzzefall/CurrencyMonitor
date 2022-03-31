@@ -4,7 +4,7 @@ using CurrencyMonitor.Domain.Entities;
 
 namespace CurrencyMonitor.Logic.Services
 {
-    public interface ICurrencyExchanger
+    public interface ICurrencyExchangerService
     {
         Task<List<ICurrency>> GetCurrencyListAsync();
         Task<double> Exchange(ICurrency fromCurrency, ICurrency toCurrency, double value);

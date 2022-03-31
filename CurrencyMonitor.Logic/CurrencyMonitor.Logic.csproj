@@ -121,8 +121,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\CurrencyExchanger.cs" />
-    <Compile Include="Services\ICurrencyExchanger.cs" />
+    <Compile Include="Services\CurrencyExchangerService.cs" />
+    <Compile Include="Services\ICurrencyExchangerService.cs" />
     <EmbeddedResource Include="Properties\CurrencyMonitor.Logic.rd.xml" />
   </ItemGroup>
   <ItemGroup>
