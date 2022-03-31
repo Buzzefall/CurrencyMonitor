@@ -1,7 +1,7 @@
 ﻿using System;
 using Windows.UI.Xaml.Data;
 
-namespace CurrencyMonitor.GUI.Converters
+namespace CurrencyMonitor.GUI.Helpers.Converters
 {
     public class DecimalToStringConverter : IValueConverter
     {

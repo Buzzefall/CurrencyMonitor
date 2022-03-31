@@ -8,9 +8,11 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
-        Hello there!
-    </TextBlock>
-    </Grid>
+    <ComboBox 
+        x:Name="FirstCurrencyComboBox"
+        ItemsSource="{x:Bind _currencySelectorViewModel.CurrencyList, Mode=OneWay}" DisplayMemberPath="CharCode"
+        SelectedItem="{x:Bind _currencySelectorViewModel.FromCurrency, Mode=TwoWay}" SelectionChangedTrigger="Always"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        Width="75"/>
 </Page>

@@ -7,7 +7,7 @@
 
     xmlns:local="using:CurrencyMonitor.App"
     xmlns:viewModels="using:CurrencyMonitor.GUI.ViewModels"
-    xmlns:converters="using:CurrencyMonitor.GUI.Converters"
+    xmlns:converters="using:CurrencyMonitor.GUI.Helpers.Converters"
     xmlns:userControls="using:CurrencyMonitor.App.UserControls"
 
     mc:Ignorable="d">
