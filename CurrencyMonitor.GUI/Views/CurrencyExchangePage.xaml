@@ -38,7 +38,7 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 TextAlignment="Right"
-                Width="100"/>
+                Width="150"/>
 
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 -35">
                 <TextBlock Text="{x:Bind CurrencyInputViewModel.FromCurrencySelected.CharCode, FallbackValue='Выберите валюту', Mode=OneWay}"
@@ -91,7 +91,7 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 HorizontalContentAlignment="Left"
-                Width="100"/>
+                Width="150"/>
 
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 -35">
                 <TextBlock Text="{x:Bind CurrencyInputViewModel.ToCurrencySelected.CharCode, FallbackValue='Выберите валюту', Mode=OneWay}"
