@@ -14,15 +14,15 @@ using CurrencyMonitor.Logic.Services.Providers;
 namespace CurrencyMonitor.GUI
 {
     sealed partial class CurrencyMonitorApplication : Application {
-        public ICurrencyExchangerService CurrencyExchangerServiceService { get; private set; }
+        public ICurrencyExchangerService CurrencyExchangerService { get; private set; }
 
         public CurrencyMonitorApplication()
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
 
-            var dataProvider = new CurrencyDataProvider();
-            CurrencyExchangerServiceService = new CurrencyExchangerService(dataProvider);
+            var dataProvider = new CurrencyListProvider();
+            CurrencyExchangerService = new CurrencyExchangerService(dataProvider);
         }
 
         protected override void OnLaunched(LaunchActivatedEventArgs e)

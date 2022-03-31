@@ -12,20 +12,21 @@ namespace CurrencyMonitor.Logic.Services
 {
     public class CurrencyExchangerService : ICurrencyExchangerService {
         private List<ICurrency> Currencies { get; set; }
-        private ICurrencyDataProvider DataProvider { get; }
+        private ICurrencyListProvider ListProvider { get; }
 
-        public CurrencyExchangerService(ICurrencyDataProvider provider) {
-            DataProvider = provider;
+        public CurrencyExchangerService(ICurrencyListProvider provider) {
+            ListProvider = provider;
         }
 
         public async Task<List<ICurrency>> GetCurrencyListAsync() {
-            return Currencies ?? (Currencies = await DataProvider.ProvideCurrencyListAsync());
+            return Currencies ?? (Currencies = await ListProvider.GetCurrencyListAsync());
         }
 
-        public double Exchange(ICurrency fromCurrency, ICurrency toCurrency, double value) {
-            var fromCurrencyInRubles = fromCurrency.Value / fromCurrency.Nominal;
-            var toCurrencyInRubles = toCurrency.Value / toCurrency.Nominal;
-            return value * fromCurrencyInRubles / toCurrencyInRubles;
-        }
+        // TODO: rework
+        //public double Exchange(ICurrency fromCurrency, ICurrency toCurrency, double value) {
+        //    var fromCurrencyInRubles = fromCurrency.Value / fromCurrency.Nominal;
+        //    var toCurrencyInRubles =  toCurrency.Value / toCurrency.Nominal;
+        //    return  Math.Round(value * fromCurrencyInRubles / toCurrencyInRubles, 2, MidpointRounding.AwayFromZero);
+        //}
     }
 }

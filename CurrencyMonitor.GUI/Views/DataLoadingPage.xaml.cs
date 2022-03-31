@@ -42,7 +42,7 @@ namespace CurrencyMonitor.GUI.Views
 
             var param = e.Parameter;
             var app = Application.Current as CurrencyMonitorApplication;
-            DataLoadingTask = app.CurrencyExchangerServiceService.GetCurrencyListAsync();
+            DataLoadingTask = app.CurrencyExchangerService.GetCurrencyListAsync();
         }
     }
 }

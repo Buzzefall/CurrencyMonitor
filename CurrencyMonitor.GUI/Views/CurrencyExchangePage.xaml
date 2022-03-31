@@ -35,7 +35,6 @@
                 x:Name="FirstCurrencyInput"
                 Text="{x:Bind CurrencyInputViewModel.FromCurrencySelectedValue, Mode=TwoWay, FallbackValue=0, UpdateSourceTrigger=PropertyChanged}"
                 BeforeTextChanging="CurrencyInputs_BeforeTextChanging"
-                TextChanging="CurrencyInputs_TextChanging"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 TextAlignment="Right"
@@ -89,10 +88,9 @@
                 x:Name="SecondCurrencyInput"
                 Text="{x:Bind CurrencyInputViewModel.ToCurrencySelectedValue, Mode=TwoWay, FallbackValue=0, UpdateSourceTrigger=PropertyChanged}"
                 BeforeTextChanging="CurrencyInputs_BeforeTextChanging"
-                TextChanging="CurrencyInputs_TextChanging"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                TextAlignment="Right"
+                HorizontalContentAlignment="Left"
                 Width="100"/>
 
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 -35">

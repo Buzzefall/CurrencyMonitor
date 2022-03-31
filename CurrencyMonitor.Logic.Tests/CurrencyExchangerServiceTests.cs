@@ -13,7 +13,7 @@ namespace CurrencyMonitor.Logic.Tests
         [TestMethod]
         public async void GetCurrencyListAsync_List_Contains_Essentials() {
 
-            var provider = new CurrencyDataProvider();
+            var provider = new CurrencyListProvider();
             var exchangerService = new CurrencyExchangerService(provider);
 
             var currencyList = await exchangerService.GetCurrencyListAsync();
