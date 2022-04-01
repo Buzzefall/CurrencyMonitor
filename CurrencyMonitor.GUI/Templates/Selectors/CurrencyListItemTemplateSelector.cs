@@ -6,7 +6,7 @@ namespace CurrencyMonitor.GUI.Templates.Selectors {
     public class CurrencyListItemTemplateSelector : DataTemplateSelector {
         protected override DataTemplate SelectTemplateCore(object item) {
             if (item is ICurrency currencyListItem) {
-                // ....
+                // TODO: ....
             }
 
             return base.SelectTemplateCore(item);
