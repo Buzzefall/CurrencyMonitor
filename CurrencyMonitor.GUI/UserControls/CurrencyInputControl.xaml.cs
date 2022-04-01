@@ -6,7 +6,6 @@ namespace CurrencyMonitor.GUI.UserControls
 {
     public sealed partial class CurrencyInputControl : UserControl
     {
-        //public CurrencyInputViewModel CurrencyInputViewModel => DataContext as CurrencyInputViewModel;
         public event RoutedEventHandler ChangeCurrencyButtonClick;
 
         public static DependencyProperty CurrencyValueProperty { get; set; }
@@ -22,10 +21,6 @@ namespace CurrencyMonitor.GUI.UserControls
             set => SetValue(CurrencyCharCodeProperty, value);
         }
 
-        //public DependencyPropertyChangedCallback ChangeCurrencyButtonClick {
-        //    get { return (DependencyPropertyChangedCallback)GetValue(ChangeCurrencyButtonClickProperty); }
-        //    set { SetValue(ChangeCurrencyButtonClickProperty, value); }
-        //}
 
         static CurrencyInputControl()
         {
@@ -41,7 +36,6 @@ namespace CurrencyMonitor.GUI.UserControls
                 typeof(CurrencyInputControl),
                 new PropertyMetadata("UnknownCurrencyCode"));
 
-            //CurrencyCharCodeChangedCallback = RegisterPropertyChangedCallback(CurrencyValueProperty, )
         }
 
         public CurrencyInputControl() {

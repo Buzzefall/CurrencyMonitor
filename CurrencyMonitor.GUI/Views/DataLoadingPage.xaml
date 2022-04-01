@@ -9,5 +9,9 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     >
 
-    <ProgressRing x:Name="LoadingScreenProgressRing" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <ProgressRing x:Name="LoadingScreenProgressRing" 
+                      IsActive="True"
+                      Width="100"
+                      Height="100"/>
+
 </Page>

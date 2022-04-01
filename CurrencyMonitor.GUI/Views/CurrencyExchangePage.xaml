@@ -58,7 +58,7 @@
         <myControls:CurrencyInputControl 
             x:Name="FirstCurrencyInputControl"
             CurrencyValue="{x:Bind CurrencyInputViewModel.FromCurrencyValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-            CurrencyCharCode="{x:Bind CurrencyInputViewModel.FromCurrencySelected.CharCode, FallbackValue='Выберите валюту'}"
+            CurrencyCharCode="{x:Bind CurrencyInputViewModel.FromCurrencySelected.CharCode, Mode=OneWay, FallbackValue='Выберите валюту'}"
             ChangeCurrencyButtonClick="ChangeFirstCurrencyButton_OnClick"
             Grid.Row="1" Grid.Column="1"/>
         
@@ -88,7 +88,7 @@
         <myControls:CurrencyInputControl 
             x:Name="SecondCurrencyInputControl"
             CurrencyValue="{x:Bind CurrencyInputViewModel.ToCurrencyValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-            CurrencyCharCode="{x:Bind CurrencyInputViewModel.ToCurrencySelected.CharCode, FallbackValue='Выберите валюту'}"
+            CurrencyCharCode="{x:Bind CurrencyInputViewModel.ToCurrencySelected.CharCode, Mode=OneWay, FallbackValue='Выберите валюту'}"
             ChangeCurrencyButtonClick="ChangeSecondCurrencyButton_OnClick"
             Grid.Row="1" Grid.Column="3"/>
 

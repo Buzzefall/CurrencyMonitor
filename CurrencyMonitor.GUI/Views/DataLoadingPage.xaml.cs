@@ -19,9 +19,6 @@ namespace CurrencyMonitor.GUI.Views
         public DataLoadingPage()
         {
             this.InitializeComponent();
-            
-            LoadingScreenProgressRing.IsActive = true;
-
             this.Loaded += OnLoaded;
         }
 
