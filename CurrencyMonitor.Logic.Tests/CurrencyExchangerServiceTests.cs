@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 using CurrencyMonitor.Logic.Services;
 using CurrencyMonitor.Logic.Services.Providers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -11,7 +12,7 @@ namespace CurrencyMonitor.Logic.Tests
     public class CurrencyExchangerServiceTests
     {
         [TestMethod]
-        public async void GetCurrencyListAsync_List_Contains_Essentials() {
+        public async Task CurrencyDataProvider_Currency_List_Contains_Essential_Currencies() {
 
             var provider = new CurrencyDataProvider();
             var exchangerService = new CurrencyExchangerService(provider);

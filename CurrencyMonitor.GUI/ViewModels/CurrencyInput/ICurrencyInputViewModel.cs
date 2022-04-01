@@ -1,6 +1,6 @@
 ﻿namespace CurrencyMonitor.GUI.ViewModels {
     public interface ICurrencyInputViewModel {
-        double FromCurrencySelectedValue { get; set; }
-        double ToCurrencySelectedValue { get; set; }
+        double FromCurrencyValue { get; set; }
+        double ToCurrencyValue { get; set; }
     }
 }

@@ -13,12 +13,12 @@ namespace CurrencyMonitor.GUI.ViewModels
         private ObservableCollection<ICurrency> _currencyList;
 
         private ICurrency _fromCurrencySelected;
-        private double _fromCurrencySelectedValue;
+        private double _fromCurrencyValue;
 
         private double _exchangeRate;
 
         private ICurrency _toCurrencySelected;
-        private double _toCurrencySelectedValue;
+        private double _toCurrencyValue;
 
         public int LastCurrencySelectedIndex { get; set; }
 
@@ -64,23 +64,23 @@ namespace CurrencyMonitor.GUI.ViewModels
 
                 UpdateExchangeRate();
 
-                _fromCurrencySelectedValue = Math.Round(_toCurrencySelectedValue / _exchangeRate, 2, MidpointRounding.AwayFromZero);
+                _fromCurrencyValue = Math.Round(_toCurrencyValue / _exchangeRate, 2, MidpointRounding.AwayFromZero);
 
                 OnPropertyChanged(nameof(FromCurrencySelected));
-                OnPropertyChanged(nameof(FromCurrencySelectedValue));
+                OnPropertyChanged(nameof(FromCurrencyValue));
             }
         }
 
-        public double FromCurrencySelectedValue {
-            get => _fromCurrencySelectedValue;
+        public double FromCurrencyValue {
+            get => _fromCurrencyValue;
             set {
-                if (Math.Abs(_fromCurrencySelectedValue - value) < 1e-3) return;
+                if (Math.Abs(_fromCurrencyValue - value) < 1e-3) return;
 
-                _fromCurrencySelectedValue = value;
-                _toCurrencySelectedValue = Math.Round(value * _exchangeRate, 2, MidpointRounding.AwayFromZero);
+                _fromCurrencyValue = value;
+                _toCurrencyValue = Math.Round(value * _exchangeRate, 2, MidpointRounding.AwayFromZero);
 
-                OnPropertyChanged(nameof(FromCurrencySelectedValue));
-                OnPropertyChanged(nameof(ToCurrencySelectedValue));
+                OnPropertyChanged(nameof(FromCurrencyValue));
+                OnPropertyChanged(nameof(ToCurrencyValue));
             }
         }
 
@@ -94,23 +94,23 @@ namespace CurrencyMonitor.GUI.ViewModels
 
                 UpdateExchangeRate();
 
-                _toCurrencySelectedValue = Math.Round(_fromCurrencySelectedValue * _exchangeRate, 2, MidpointRounding.AwayFromZero);
+                _toCurrencyValue = Math.Round(_fromCurrencyValue * _exchangeRate, 2, MidpointRounding.AwayFromZero);
 
                 OnPropertyChanged(nameof(ToCurrencySelected));
-                OnPropertyChanged(nameof(ToCurrencySelectedValue));
+                OnPropertyChanged(nameof(ToCurrencyValue));
             }
         }
 
-        public double ToCurrencySelectedValue {
-            get => _toCurrencySelectedValue;
+        public double ToCurrencyValue {
+            get => _toCurrencyValue;
             set {
-                if (Math.Abs(_toCurrencySelectedValue - value) < 1e-3) return;
+                if (Math.Abs(_toCurrencyValue - value) < 1e-3) return;
 
-                _toCurrencySelectedValue = value;
-                _fromCurrencySelectedValue = Math.Round(value / _exchangeRate, 2, MidpointRounding.AwayFromZero);
+                _toCurrencyValue = value;
+                _fromCurrencyValue = Math.Round(value / _exchangeRate, 2, MidpointRounding.AwayFromZero);
 
-                OnPropertyChanged(nameof(ToCurrencySelectedValue));
-                OnPropertyChanged(nameof(FromCurrencySelectedValue));
+                OnPropertyChanged(nameof(ToCurrencyValue));
+                OnPropertyChanged(nameof(FromCurrencyValue));
             }
         }
     }

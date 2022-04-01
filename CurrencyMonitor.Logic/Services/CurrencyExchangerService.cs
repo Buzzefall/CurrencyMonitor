@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.Contracts;
-using System.IO;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Windows.Data.Json;
 using CurrencyMonitor.Domain.Entities;
 using CurrencyMonitor.Logic.Services.Providers;
 

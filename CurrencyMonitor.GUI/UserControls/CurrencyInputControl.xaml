@@ -1,5 +1,5 @@
 ﻿<UserControl
-    x:Class="CurrencyMonitor.GUI.UserControls.MyUserControl1"
+    x:Class="CurrencyMonitor.GUI.UserControls.CurrencyInputControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:CurrencyMonitor.GUI.UserControls"
@@ -9,7 +9,35 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <Grid>
+    
+    <StackPanel Orientation="Vertical" 
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Spacing="5" >
 
-    </Grid>
+        <TextBox 
+            x:Name="CurrencyInputTextBox"
+            Text="{x:Bind CurrencyValue, Mode=TwoWay, FallbackValue=0, UpdateSourceTrigger=PropertyChanged}"
+            BeforeTextChanging="CurrencyInputTextBox_OnBeforeTextChanging"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            TextAlignment="Right"
+            Width="150"/>
+
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 -35">
+            <TextBlock x:Name="CurrencyCodename"
+                       Text="{x:Bind CurrencyCharCode, Mode=OneWay}"
+                       FontWeight="ExtraBold"
+                       FontSize="14"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+
+            <HyperlinkButton x:Name="ChangeCurrencyButton" 
+                             Content="Изменить валюту" 
+                             Click="ChangeCurrencyButton_OnClick"
+                             />
+        </StackPanel>
+
+    </StackPanel>
+
 </UserControl>

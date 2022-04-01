@@ -1,19 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-
-using Windows.Globalization.NumberFormatting;
+﻿using System.Linq;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
-
-using Microsoft.UI.Xaml.Controls;
-
-using CurrencyMonitor.Domain.Entities;
 using CurrencyMonitor.GUI.ViewModels;
-using CurrencyMonitor.GUI.Helpers;
 
 
 namespace CurrencyMonitor.GUI.Views

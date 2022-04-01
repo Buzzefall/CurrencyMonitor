@@ -7,6 +7,7 @@
     mc:Ignorable="d"
 
     xmlns:controls="using:Microsoft.UI.Xaml.Controls"
+    xmlns:myControls="using:CurrencyMonitor.GUI.UserControls"
 
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -25,7 +26,7 @@
         </Grid.ColumnDefinitions>
 
 
-        <StackPanel Orientation="Vertical" 
+        <!--<StackPanel Orientation="Vertical" 
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center"
                     Spacing="5" 
@@ -52,8 +53,15 @@
                                  Click="ChangeFirstCurrencyButton_OnClick"/>
             </StackPanel>
 
-        </StackPanel>
+        </StackPanel>-->
 
+        <myControls:CurrencyInputControl 
+            x:Name="FirstCurrencyInputControl"
+            CurrencyValue="{x:Bind CurrencyInputViewModel.FromCurrencyValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            CurrencyCharCode="{x:Bind CurrencyInputViewModel.FromCurrencySelected.CharCode, FallbackValue='Выберите валюту'}"
+            ChangeCurrencyButtonClick="ChangeFirstCurrencyButton_OnClick"
+            Grid.Row="1" Grid.Column="1"/>
+        
 
         <StackPanel HorizontalAlignment="Center" 
                     VerticalAlignment="Center" 
@@ -77,8 +85,14 @@
             <TextBlock Text="Развернуть"/>
         </StackPanel>
 
+        <myControls:CurrencyInputControl 
+            x:Name="SecondCurrencyInputControl"
+            CurrencyValue="{x:Bind CurrencyInputViewModel.ToCurrencyValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            CurrencyCharCode="{x:Bind CurrencyInputViewModel.ToCurrencySelected.CharCode, FallbackValue='Выберите валюту'}"
+            ChangeCurrencyButtonClick="ChangeSecondCurrencyButton_OnClick"
+            Grid.Row="1" Grid.Column="3"/>
 
-        <StackPanel Orientation="Vertical" 
+        <!--<StackPanel Orientation="Vertical" 
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
                     Spacing="5" 
@@ -86,7 +100,7 @@
 
             <TextBox 
                 x:Name="SecondCurrencyInput"
-                Text="{x:Bind CurrencyInputViewModel.ToCurrencySelectedValue, Mode=TwoWay, FallbackValue=0, UpdateSourceTrigger=PropertyChanged}"
+                Text="{x:Bind CurrencyInputViewModel.ToCurrencyValue, Mode=TwoWay, FallbackValue=0, UpdateSourceTrigger=PropertyChanged}"
                 BeforeTextChanging="CurrencyInputs_BeforeTextChanging"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
@@ -105,6 +119,6 @@
                                  Click="ChangeSecondCurrencyButton_OnClick"/>
             </StackPanel>
 
-        </StackPanel>
+        </StackPanel>-->
     </Grid>
 </Page>
