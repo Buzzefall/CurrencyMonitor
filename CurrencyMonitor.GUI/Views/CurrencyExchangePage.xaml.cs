@@ -13,7 +13,7 @@ namespace CurrencyMonitor.GUI.Views
 
         public CurrencyExchangePage() {
             this.InitializeComponent();
-            this.NavigationCacheMode = NavigationCacheMode.Required;
+            //this.NavigationCacheMode = NavigationCacheMode.Required;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e) {

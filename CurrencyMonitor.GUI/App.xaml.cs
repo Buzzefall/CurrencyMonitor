@@ -43,7 +43,6 @@ namespace CurrencyMonitor.GUI
             if (e.PrelaunchActivated != false) return;
             
             if (rootFrame.Content == null) {
-                //rootFrame.CacheSize = 2;
                 rootFrame.Navigate(typeof(DataLoadingPage), e.Arguments);
             }
 

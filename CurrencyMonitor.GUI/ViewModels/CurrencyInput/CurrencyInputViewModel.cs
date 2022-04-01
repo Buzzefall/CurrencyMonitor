@@ -15,7 +15,7 @@ namespace CurrencyMonitor.GUI.ViewModels
         private ICurrency _fromCurrencySelected;
         private double _fromCurrencyValue;
 
-        private double _exchangeRate;
+        private double _exchangeRate = 1.0;
 
         private ICurrency _toCurrencySelected;
         private double _toCurrencyValue;
