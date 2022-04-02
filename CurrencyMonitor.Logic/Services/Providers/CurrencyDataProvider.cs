@@ -43,26 +43,26 @@ namespace CurrencyMonitor.Logic.Services.Providers  {
         }
 
         public async Task<List<ICurrency>> GetCurrencyListAsync() {
-            var client = new Windows.Web.Http.HttpClient();
-            var jsonString = await client.GetStringAsync(new Uri(DataSourceUrl));
-            
-            var currencies = ParseJson(jsonString);
-            if (!currencies.Any(currency => currency.CharCode.Equals("RUB", StringComparison.OrdinalIgnoreCase))) {
-                currencies.Add(new Currency {
-                    ID = "X",
-                    CharCode = "RUB",
-                    Nominal = 1,
-                    Value = 1,
-                    NumCode = "X",
-                    Name = "Российский рубль",
-                    Previous = 1
-                });
+            List<ICurrency> currencies;
+
+            using (var client = new Windows.Web.Http.HttpClient()) {
+                var jsonString = await client.GetStringAsync(new Uri(DataSourceUrl));
+                currencies = ParseJson(jsonString);
+                if (!currencies.Any(currency => currency.CharCode.Equals("RUB", StringComparison.OrdinalIgnoreCase))) {
+                    currencies.Add(new Currency {
+                        ID = "X",
+                        CharCode = "RUB",
+                        Nominal = 1,
+                        Value = 1,
+                        NumCode = "X",
+                        Name = "Российский рубль",
+                        Previous = 1
+                    });
+                }
+
             }
 
             return currencies;
-
         }
-
-
     }
 }
