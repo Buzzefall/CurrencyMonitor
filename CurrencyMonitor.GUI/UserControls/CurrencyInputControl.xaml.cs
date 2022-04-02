@@ -48,7 +48,7 @@ namespace CurrencyMonitor.GUI.UserControls
         }
 
         private void ChangeCurrencyButton_OnClick(object sender, RoutedEventArgs e) {
-            ChangeCurrencyButtonClick?.Invoke(sender, e);
+            ChangeCurrencyButtonClick?.Invoke(this, e);
         }
     }
 }

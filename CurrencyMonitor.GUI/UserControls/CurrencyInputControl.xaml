@@ -8,12 +8,11 @@
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
-
     
     <StackPanel Orientation="Vertical" 
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Spacing="5" >
+                Spacing="5">
 
         <TextBox 
             x:Name="CurrencyInputTextBox"
@@ -30,12 +29,12 @@
                        FontWeight="ExtraBold"
                        FontSize="14"
                        HorizontalAlignment="Center"
-                       VerticalAlignment="Center"/>
+                       VerticalAlignment="Center">
+            </TextBlock>
 
             <HyperlinkButton x:Name="ChangeCurrencyButton" 
                              Content="Изменить валюту" 
-                             Click="ChangeCurrencyButton_OnClick"
-                             />
+                             Click="ChangeCurrencyButton_OnClick"/>
         </StackPanel>
 
     </StackPanel>

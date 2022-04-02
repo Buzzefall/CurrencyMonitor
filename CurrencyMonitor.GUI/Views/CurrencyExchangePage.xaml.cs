@@ -3,6 +3,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
+using CurrencyMonitor.GUI.UserControls;
 using CurrencyMonitor.GUI.ViewModels;
 
 

@@ -38,7 +38,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="domain:ICurrency">
                     <StackPanel Orientation="Horizontal" Spacing="10">
-                        <TextBlock Text="{x:Bind Name}" FontStyle="Italic"/>
+                        <TextBlock Text="{x:Bind Name}" FontStyle="Normal"/>
                         <TextBlock Text="{x:Bind CharCode}" FontWeight="ExtraBold" HorizontalTextAlignment="Right"/>
                     </StackPanel>
                 </DataTemplate>
