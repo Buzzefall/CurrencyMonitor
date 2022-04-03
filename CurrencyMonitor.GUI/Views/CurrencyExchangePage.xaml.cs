@@ -25,24 +25,18 @@ namespace CurrencyMonitor.GUI.Views
             CurrencyInputViewModel = e.Parameter as CurrencyInputViewModel;
         }
 
+        private void SelectCurrencyButton_OnClick(object sender, RoutedEventArgs e) {
+            var senderName = (sender as CurrencyInputControl)?.Name;
+            CurrencyInputViewModel.LastCurrencySelectedIndex = senderName == nameof(FirstCurrencyInputControl) ? 1 : 2;
+            Frame.Navigate(typeof(CurrencySelectPage), CurrencyInputViewModel, new EntranceNavigationTransitionInfo());
+        }
+
         private void SwitchCurrencyButton_OnClick(object sender, RoutedEventArgs e) {
             (CurrencyInputViewModel.FromCurrencySelected, CurrencyInputViewModel.ToCurrencySelected) =
                 (CurrencyInputViewModel.ToCurrencySelected, CurrencyInputViewModel.FromCurrencySelected);
-        }
 
-        private void ChangeFirstCurrencyButton_OnClick(object sender, RoutedEventArgs e) {
-            CurrencyInputViewModel.LastCurrencySelectedIndex = 1;
-            Frame.Navigate(typeof(CurrencySelectPage), CurrencyInputViewModel, new DrillInNavigationTransitionInfo());
-        }
-
-        private void ChangeSecondCurrencyButton_OnClick(object sender, RoutedEventArgs e) {
-            CurrencyInputViewModel.LastCurrencySelectedIndex = 2;
-            Frame.Navigate(typeof(CurrencySelectPage), CurrencyInputViewModel, new DrillInNavigationTransitionInfo());
-        }
-
-        private void CurrencyInputs_BeforeTextChanging(TextBox sender, TextBoxBeforeTextChangingEventArgs e) {
-            e.Cancel = e.NewText.Any(ch => !char.IsDigit(ch) && !ch.Equals('.')) ||
-                       e.NewText.Count(ch => ch.Equals('.')) > 1;
+            (CurrencyInputViewModel.ToCurrencyValue, CurrencyInputViewModel.FromCurrencyValue) = 
+                (CurrencyInputViewModel.FromCurrencyValue, CurrencyInputViewModel.ToCurrencyValue);
         }
     }
 }
