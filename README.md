@@ -1,3 +1,3 @@
 # CurrencyMonitor
 
-UWP test-drive
+UWP test-drive (test assignment).
