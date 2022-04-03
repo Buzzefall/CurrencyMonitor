@@ -28,37 +28,19 @@
             x:Name="FirstCurrencyInputControl"
             CurrencyValue="{x:Bind CurrencyInputViewModel.FromCurrencyValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
             CurrencyCharCode="{x:Bind CurrencyInputViewModel.FromCurrencySelected.CharCode, Mode=OneWay, FallbackValue='Выберите валюту'}"
-            ChangeCurrencyButtonClick="ChangeFirstCurrencyButton_OnClick"
+            ChangeCurrencyButtonClick="SelectCurrencyButton_OnClick"
             Grid.Row="1" Grid.Column="1"/>
-        
 
-        <StackPanel HorizontalAlignment="Center" 
-                    VerticalAlignment="Center" 
-                    Margin="0 0 0 -8"
-                    Spacing="10"
-                    Grid.Row="1" Grid.Column="2">
-
-            <Button x:Name="SwitchCurrencyButton"
-                    Width="48"
-                    Height="48"
-                    HorizontalAlignment="Center"
-                    Foreground="Transparent"
-                    Click="SwitchCurrencyButton_OnClick">
-                <Image x:Name="ImageExchange"
-                       Stretch="UniformToFill"
-                       HorizontalAlignment="Center"
-
-                       Source="../Assets/exchange.png"/>
-            </Button>
-
-            <TextBlock Text="Развернуть"/>
-        </StackPanel>
+        <myControls:SwitchCurrencyControl x:Name="SwitchCurrencyControl"
+            ImageSource="../Assets/exchange.png"
+            SwitchCurrencyButtonClick="SwitchCurrencyButton_OnClick"
+            Grid.Row="1" Grid.Column="2"/>
 
         <myControls:CurrencyInputControl 
             x:Name="SecondCurrencyInputControl"
             CurrencyValue="{x:Bind CurrencyInputViewModel.ToCurrencyValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
             CurrencyCharCode="{x:Bind CurrencyInputViewModel.ToCurrencySelected.CharCode, Mode=OneWay, FallbackValue='Выберите валюту'}"
-            ChangeCurrencyButtonClick="ChangeSecondCurrencyButton_OnClick"
+            ChangeCurrencyButtonClick="SelectCurrencyButton_OnClick"
             Grid.Row="1" Grid.Column="3"/>
 
     </Grid>

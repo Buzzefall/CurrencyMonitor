@@ -125,6 +125,9 @@
     <Compile Include="UserControls\CurrencyInputControl.xaml.cs">
       <DependentUpon>CurrencyInputControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\CurrencySwapControl.xaml.cs">
+      <DependentUpon>CurrencySwapControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\CurrencyInput\CurrencyInputViewModel.cs" />
     <Compile Include="ViewModels\CurrencyInput\ICurrencyInputViewModel.cs" />
     <Compile Include="Views\CurrencyExchangePage.xaml.cs">
@@ -160,6 +163,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="UserControls\CurrencyInputControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\CurrencySwapControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -13,7 +13,7 @@ using CurrencyMonitor.Logic.Services.Providers;
 namespace CurrencyMonitor.GUI
 {
     sealed partial class CurrencyMonitorApplication : Application {
-        public ICurrencyExchangerService CurrencyExchangerService { get; private set; }
+        public ICurrencyExchangerService CurrencyExchangerService { get; set; }
 
         public CurrencyMonitorApplication()
         {

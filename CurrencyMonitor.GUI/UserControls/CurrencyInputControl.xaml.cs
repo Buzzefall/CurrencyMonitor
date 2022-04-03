@@ -34,7 +34,7 @@ namespace CurrencyMonitor.GUI.UserControls
                 "CurrencyCharCode",
                 typeof(string),
                 typeof(CurrencyInputControl),
-                new PropertyMetadata("UnknownCurrencyCode"));
+                new PropertyMetadata("CurrencyCodename"));
 
         }
 
