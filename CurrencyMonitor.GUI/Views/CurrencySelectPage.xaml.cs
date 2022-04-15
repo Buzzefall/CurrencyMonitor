@@ -41,9 +41,11 @@ namespace CurrencyMonitor.GUI.Views
                 case 1 when CurrencyInputViewModel.FromCurrencySelected != selected:
                     CurrencyInputViewModel.FromCurrencySelected = selected;
                     break;
+
                 case 2 when CurrencyInputViewModel.ToCurrencySelected != selected:
                     CurrencyInputViewModel.ToCurrencySelected = selected;
                     break;
+
                 default:
                     return;
             }
