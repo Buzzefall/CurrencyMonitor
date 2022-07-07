@@ -19,6 +19,8 @@ namespace CurrencyMonitor.GUI.Views
             this.Loading += OnLoadingStart;
         }
 
+
+
         private void OnLoadingStart(FrameworkElement frameworkElement, object args) {
             CurrencySelectList.SelectedItem =
                 CurrencyInputViewModel.LastCurrencySelectedIndex == 1

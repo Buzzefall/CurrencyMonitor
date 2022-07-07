@@ -33,11 +33,10 @@ namespace CurrencyMonitor.GUI.Views
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e) {
-            base.OnNavigatedTo(e);
-
-            var param = e.Parameter;
             var app = Application.Current as CurrencyMonitorApplication;
             DataLoadingTask = app.CurrencyExchangerService.GetCurrencyListAsync();
+
+            base.OnNavigatedTo(e);
         }
     }
 }
